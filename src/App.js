@@ -9,9 +9,14 @@ import {
 import 'semantic-ui-css/semantic.min.css'
 
 import { SubstrateContextProvider, useSubstrateState } from './substrate-lib'
-import { DeveloperConsole } from './substrate-lib/components'
-import DappStore from "./pages/dappStore";
-
+// import DappStore from "./pages/dappStore";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import Home from './pages/home'
+import DappStore from './pages/dappStore';
 
 function Main() {
   const { apiState, apiError, keyringState } = useSubstrateState()
@@ -49,16 +54,24 @@ function Main() {
 
   return (
     <div ref={contextRef}>
-      <DappStore />
-      <DeveloperConsole />
+      <Switch>
+        <Route exact path="/dapp-store">
+          <DappStore />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
     </div>
   )
 }
 
 export default function App() {
   return (
-    <SubstrateContextProvider>
-      <Main />
-    </SubstrateContextProvider>
+    <Router>
+      <SubstrateContextProvider>
+        <Main />
+      </SubstrateContextProvider>
+    </Router>
   )
 }

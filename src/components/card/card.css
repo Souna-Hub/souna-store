@@ -1,0 +1,18 @@
+.card-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-image-wrap {
+    max-width: 70px;
+}
+
+.card-image-wrap img {
+    width: 100%;
+}
+
+.card-info-wrap {}
+
+.card-title {
+    font-size: 1rem;
+}

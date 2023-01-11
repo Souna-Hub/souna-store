@@ -1,12 +1,10 @@
 import React, { createRef } from 'react'
-import {
-    Sticky,
-} from 'semantic-ui-react'
+import { Grid, Container } from 'semantic-ui-react'
+
+import Card from "../components/card/card";
 import 'semantic-ui-css/semantic.min.css'
 
-import { Grid } from '@mui/material'
-
-import AccountSelector from '../AccountSelector'
+// import AccountSelector from '../AccountSelector'
 // import Balances from '../Balances'
 // import BlockNumber from '../BlockNumber'
 // import Events from '../Events'
@@ -21,25 +19,39 @@ import AccountSelector from '../AccountSelector'
 function DappStore() {
     const contextRef = createRef()
     return (
-        <div>
-            <Sticky context={contextRef}>
-                <AccountSelector />
-            </Sticky>
-            <Grid container spacing={2}>
-                <Grid item xs={8}>
-                    <h1>xs=8</h1>
-                </Grid>
-                <Grid item xs={4}>
-                    <h1>xs=4</h1>
-                </Grid>
-                <Grid item xs={4}>
-                    <h1>xs=4</h1>
-                </Grid>
-                <Grid item xs={8}>
-                    <h1>xs=8</h1>
-                </Grid>
+        <Container ref={contextRef}>
+            <h1>DApp Store</h1>
+            <Grid columns={4} divided>
+                <Grid.Row>
+                    <Grid.Column>
+                        <Card />
+                    </Grid.Column>
+                    <Grid.Column>
+                        <Card />
+                    </Grid.Column>
+                    <Grid.Column>
+                        <Card />
+                    </Grid.Column>
+                    <Grid.Column>
+                        <Card />
+                    </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                    <Grid.Column>
+                        <Card />
+                    </Grid.Column>
+                    <Grid.Column>
+                        <Card />
+                    </Grid.Column>
+                    <Grid.Column>
+                        <Card />
+                    </Grid.Column>
+                    <Grid.Column>
+                        <Card />
+                    </Grid.Column>
+                </Grid.Row>
             </Grid>
-        </div >
+        </Container>
     )
 }
 
