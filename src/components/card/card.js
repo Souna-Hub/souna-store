@@ -1,24 +1,38 @@
 import React from 'react'
 import "./card.css"
 
-function Card() {
+const reduceText = (text) => {
+    let result = text;
+    if (text.length > 25) {
+        result = text.slice(0, 25) + " ..."
+    }
+
+    return result;
+}
+
+function Card({ title, tags, imageUrl, description }) {
     return (
         <div className="card-wrap">
-            <div className='card-header'>
-                <div className='card-image-wrap'>
-                    <img src='https://play-lh.googleusercontent.com/SIGqx9zg70r_prkE8NytTNq_zHgm2hLnG3gzHHQeYICJLnn0I-_BHOObPPeYP9Pkgw' />
-                </div>
-                <div className='card-info-wrap'>
-                    <h2 className='card-title'>Wildcash</h2>
-                    <div className='card-tag-wrap'>
-                        <p className='card-tag'>NFT</p>
-                        <p className='card-tag'>Gamefi</p>
+            <div className='card-content'>
+                <div className='card-header'>
+                    <div className='card-image-wrap'>
+                        <img src={imageUrl} />
                     </div>
+                    <div className='card-info-wrap'>
+                        <h2 className='card-title'>{title}</h2>
+                        <div className='card-tag-wrap'>
+                            {tags.map((item, index) => {
+                                return (
+                                    <p key={index} className={"card-tag " + item}>{item}</p>
+                                )
+                            })}
+                        </div>
+                    </div>
+                    <button>Install</button>
                 </div>
-                <button>Install</button>
-            </div>
-            <div className='card-body'>
-                <p>Wild Cash is an easy-to-use, earn-good-paying app for earning rewards anytime, anywhere</p>
+                <div className='card-body'>
+                    <p>{reduceText(description)}</p>
+                </div>
             </div>
         </div>
     )

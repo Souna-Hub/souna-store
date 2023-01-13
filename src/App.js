@@ -5,8 +5,11 @@ import {
   Loader,
   Grid,
   Message,
+  Container,
 } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
+import "./app.css"
+import Menu from "./components/menu/menu";
 
 import { SubstrateContextProvider, useSubstrateState } from './substrate-lib'
 // import DappStore from "./pages/dappStore";
@@ -17,6 +20,9 @@ import {
 } from "react-router-dom";
 import Home from './pages/home'
 import DappStore from './pages/dappStore';
+import Deploy from './pages/dappDeploy';
+import LuckyWheel from './pages/dappTest/luckyWheel/App';
+import FlappyBird from './pages/dappTest/flappyBird/App';
 
 function Main() {
   const { apiState, apiError, keyringState } = useSubstrateState()
@@ -54,9 +60,21 @@ function Main() {
 
   return (
     <div ref={contextRef}>
+      <Container className="menu-wrap">
+        <Menu contextRef={contextRef} />
+      </Container>
       <Switch>
-        <Route exact path="/dapp-store">
+        <Route exact path="/store">
           <DappStore />
+        </Route>
+        <Route exact path="/deploy">
+          <Deploy />
+        </Route>
+        <Route exact path="/dapp/lucky-wheel">
+          <LuckyWheel />
+        </Route>
+        <Route exact path="/dapp/flappy-bird">
+          <FlappyBird />
         </Route>
         <Route path="/">
           <Home />

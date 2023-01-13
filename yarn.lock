@@ -11668,6 +11668,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-confetti@npm:6.1.0":
+  version: 6.1.0
+  resolution: "react-confetti@npm:6.1.0"
+  dependencies:
+    tween-functions: ^1.2.0
+  peerDependencies:
+    react: ^16.3.0 || ^17.0.1 || ^18.0.0
+  checksum: 24b6975df144d2bf09d8e1c95ddc49e547775f911efaa8d96b49e522659d931539e9d9e48cc0db3a01f3a671be7e3824e6e728db85096f5527db5d1c69ebb153
+  languageName: node
+  linkType: hard
+
 "react-copy-to-clipboard@npm:^5.0.4":
   version: 5.0.4
   resolution: "react-copy-to-clipboard@npm:5.0.4"
@@ -11897,6 +11908,15 @@ __metadata:
   bin:
     react-scripts: bin/react-scripts.js
   checksum: 55ffad0d68ee6345326f5803c1925ae44b46cc33cb1cad9bcb68fd1784acfb3876bc12118b3079bc4d934834ae0197a9776baa0a06df0263831acc91ac42df29
+  languageName: node
+  linkType: hard
+
+"react-wheel-of-prizes@npm:1.0.6":
+  version: 1.0.6
+  resolution: "react-wheel-of-prizes@npm:1.0.6"
+  peerDependencies:
+    react: ^16.0.0
+  checksum: a7d0ba3f0c19b3e30d04df70af7b1745ec50f4b85995b288c761192803cdbf54daa453af77543023ec01462a733b6f9abbd4d4714989f11303a800196b6dd524
   languageName: node
   linkType: hard
 
@@ -13144,10 +13164,12 @@ __metadata:
     prop-types: ^15.8.1
     react: ^17.0.2
     react-app-rewired: ^2.2.1
+    react-confetti: 6.1.0
     react-copy-to-clipboard: ^5.0.4
     react-dom: ^17.0.2
     react-router-dom: ^5.3.0
     react-scripts: ^5.0.0
+    react-wheel-of-prizes: 1.0.6
     semantic-ui-css: "Semantic-Org/Semantic-UI-CSS#master"
     semantic-ui-react: ^2.1.2
     semistandard: ^16.0.1
@@ -13586,6 +13608,13 @@ __metadata:
   version: 0.0.1
   resolution: "tty-browserify@npm:0.0.1"
   checksum: 93b745d43fa5a7d2b948fa23be8d313576d1d884b48acd957c07710bac1c0d8ac34c0556ad4c57c73d36e11741763ef66b3fb4fb97b06b7e4d525315a3cd45f5
+  languageName: node
+  linkType: hard
+
+"tween-functions@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "tween-functions@npm:1.2.0"
+  checksum: 880708d680eff5c347ddcb9f922ad121703a91c78ce308ed309073e73a794b633eb0b80589a839365803f150515ad34c9646809ae8a0e90f09e62686eefb1ab6
   languageName: node
   linkType: hard
 

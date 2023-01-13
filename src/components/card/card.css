@@ -1,18 +1,116 @@
+h1,
+h2,
+h3,
+button,
+p {
+    margin: 0;
+}
+
+.card-wrap {
+    background-color: #e4eff0;
+    padding: 0.8rem;
+    border-radius: 1rem;
+    border: solid 0.1rem white;
+}
+
+.card-content {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
 .card-header {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 0.5rem;
 }
 
 .card-image-wrap {
-    max-width: 70px;
+    max-width: 4rem;
+    max-height: 4rem;
 }
 
 .card-image-wrap img {
     width: 100%;
+    height: 100%;
+    border-radius: 0.8rem;
 }
 
-.card-info-wrap {}
+.card-info-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.card-tag-wrap {
+    display: flex;
+    min-width: 5.6rem;
+}
+
+.card-tag {
+    font-size: 0.9rem;
+    padding: 0.2rem;
+    border-radius: 0.3rem;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+}
+
+.gamefi {
+    background-color: #fce0db;
+    color: #f4806b;
+}
+
+.nft {
+    background-color: rgba(156, 100, 45, 0.2);
+    color: rgb(156, 100, 45);
+}
+
+.meta {
+    background-color: rgba(53, 100, 36, 0.2);
+    color: rgb(53, 100, 36);
+}
+
+.utility {
+    background-color: rgba(188, 100, 169, 0.2);
+    color: rgb(188, 100, 169);
+}
+
+.defi {
+    color: #850000;
+    background-color: #F9B5D0;
+}
+
+.card-tag:nth-child(1) {
+    margin-right: 0.5rem;
+}
 
 .card-title {
     font-size: 1rem;
+    font-weight: bold;
+}
+
+.card-wrap button {
+    background: #6333ff;
+    border-color: #6333ff;
+    box-shadow: unset;
+    color: #fff;
+    text-shadow: unset;
+    font-size: 0.85rem;
+    border: none;
+    font-weight: 600;
+    height: 2rem;
+    border-radius: 0.4rem;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    margin-top: 0.2rem;
+    cursor: pointer;
+    margin-left: 0.2rem;
+}
+
+.card-wrap button:hover {
+    background-color: #875cff;
+}
+
+.card-body p {
+    color: #999aa1;
 }
