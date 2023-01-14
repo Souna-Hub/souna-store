@@ -26,8 +26,8 @@ p {
 }
 
 .card-image-wrap {
-    max-width: 4rem;
-    max-height: 4rem;
+    max-width: 3.5rem;
+    max-height: 3.5rem;
 }
 
 .card-image-wrap img {
@@ -55,6 +55,10 @@ p {
     padding-right: 0.4rem;
 }
 
+.installed {
+    background-color: #0c950c !important;
+}
+
 .gamefi {
     background-color: #fce0db;
     color: #f4806b;
@@ -78,6 +82,11 @@ p {
 .defi {
     color: #850000;
     background-color: #F9B5D0;
+}
+
+.mini {
+    color: #9DF1DF;
+    background-color: #1C82AD;
 }
 
 .card-tag:nth-child(1) {
