@@ -11,7 +11,10 @@ const reduceText = (text) => {
     return result;
 }
 
-function Card({ name, tags, logoUrl, description, isInstalled, isMiniDapp, linkToApp, installDapp, itemIndex, currentAccount }) {
+function Card({ name, tags, logoUrl, description, isInstalled, isMiniDapp, linkToDapp, installDapp, itemIndex, currentAccount }) {
+    const openNewTab = (link) => {
+        window.open(link);
+    }
     return (
         <div className="card-wrap">
             <div className='card-content'>
@@ -30,7 +33,9 @@ function Card({ name, tags, logoUrl, description, isInstalled, isMiniDapp, linkT
                             })}
                         </div>
                     </div>
-                    <button className={isInstalled ? "installed" : ""} onClick={() => installDapp(currentAccount, itemIndex)}>{isInstalled ? "Open" : "Install"}</button>
+                    {
+                        isInstalled ? <button className={isInstalled ? "installed" : ""} onClick={() => isMiniDapp ? installDapp(currentAccount, itemIndex) : openNewTab(linkToDapp)}>{isInstalled ? "Open" : "Install"}</button> : <button className={isInstalled ? "installed" : ""} onClick={() => installDapp(currentAccount, itemIndex)}>{isInstalled ? "Open" : "Install"}</button>
+                    }
                 </div>
                 <div className='card-body'>
                     <p>{reduceText(description)}</p>

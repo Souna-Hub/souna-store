@@ -85,20 +85,21 @@ const dappListFake = [
 function DappStore() {
 
     let history = useHistory();
+    const contextRef = createRef()
+    const { currentAccount } = useSubstrateState()
+    const accountAddr = currentAccount.address;
+    console.log(accountAddr)
 
     const [dappList, setDappList] = useState(dappListFake);
 
     useEffect(() => {
         readStorageAndUpdateState()
-    }, []);
+    }, [accountAddr]);
 
     async function installDapp(currentAccount, itemIndex) {
         if (dappList[itemIndex].isInstalled === true) {
             console.log(dappList[itemIndex])
 
-            if (dappList[itemIndex].linkToDapp > 25) {
-                return;
-            }
             return history.push("/dapp/" + dappList[itemIndex].linkToDapp);
         }
         // Construct
@@ -110,7 +111,7 @@ function DappStore() {
         const api = await ApiPromise.create({ provider: wsProvider });
 
         try {
-            const submitExtrinsic = api.tx.dappStoreModule.installDapp("0x84c30601985b35e1af20cf22fb0b1621da48b930fc147fff7bef49b4f71450c0");
+            const submitExtrinsic = api.tx.dappStoreModule.installDapp(dappList[itemIndex].id);
             submitExtrinsic.signAndSend(currentAccount);
             let newList = [
                 ...dappList
@@ -139,16 +140,18 @@ function DappStore() {
         let dappListConverted = [];
 
         for (let i = 0; i < dappIdList.length; i++) {
-            let item = await apiAt.query.dappStoreModule.dapps(dappIdList[i].toString());
+            let item = await apiAt.query.dappStoreModule.dapps(dappIdList[i].toHuman());
             dappListConverted.push(item.toHuman());
         }
 
         for (let i = 0; i < dappsInstalled.length; i++) {
             const item = dappsInstalled[i].toString();
             console.log(item)
+            console.log('start compare')
             for (let index = 0; index < dappListConverted.length; index++) {
                 const element = dappListConverted[index];
                 console.log(element)
+                console.log(item)
                 if (element.id === item) {
                     console.log('hiii')
                     dappListConverted[index].isInstalled = true;
@@ -163,10 +166,7 @@ function DappStore() {
 
     }
 
-    const contextRef = createRef()
-    const { currentAccount } = useSubstrateState()
-    const accountAddr = currentAccount.address;
-    console.log(accountAddr)
+
     return (
         <Container className="store-wrap" ref={contextRef}>
             <div className='store-content'>
